@@ -1,0 +1,76 @@
+/* ==========================================================================
+   Able Development — Design Tokens · Identidade v3 (Apple-minimal)
+
+   Formato: CSS custom properties, não JSON. Justificativa: o destino desses
+   tokens é a web (site e SaaS) e este repo não tem pipeline de build — JSON
+   exigiria uma etapa de transformação (Style Dictionary ou similar) que não
+   existe aqui. Custom properties são consumíveis direto pelo navegador,
+   versionáveis em diff legível e viram a fonte de verdade sem ferramenta
+   intermediária. Se um dia outra plataforma precisar dos tokens, extrair
+   JSON deste arquivo é trivial; o inverso exigiria manter duas fontes.
+
+   Paleta 100% neutra — sem cor de destaque (diretriz v3). Hierarquia vem de
+   peso tipográfico, espaçamento e contraste tonal. Papel e tinta nunca são
+   branco/preto puros. Todo par texto/fundo abaixo tem contraste WCAG
+   CALCULADO por scripts/contraste.mjs (node scripts/contraste.mjs) — os
+   valores nos comentários são a saída real do script, não estimativa.
+   ========================================================================== */
+
+:root {
+  /* --------------------------------------------------------------------
+     Escala neutra · contexto claro (superfície: papel)
+     -------------------------------------------------------------------- */
+  --cor-papel:            #F5F4F1; /* fundo base — off-white quente, nunca #FFF */
+  --cor-papel-hover:      #EBEAE6; /* fundo de hover/pressed sobre papel */
+  --cor-borda-sutil:      #DEDCD6; /* separadores decorativos · 1,25:1 sobre papel (sem exigência WCAG — não delimita controle) */
+  --cor-borda-controle:   #8A867F; /* borda de controle interativo · 3,29:1 sobre papel — AA não-texto (1.4.11) */
+  --cor-texto-secundario: #5F5C56; /* texto secundário · 6,06:1 sobre papel, 5,53:1 sobre papel-hover — AA texto (1.4.3) */
+  --cor-tinta:            #1D1C1A; /* texto primário — quase-preto quente, nunca #000
+                                      15,48:1 sobre papel, 14,14:1 sobre papel-hover — AAA (1.4.6) */
+
+  /* --------------------------------------------------------------------
+     Escala neutra · contexto escuro (superfície: grafite)
+     -------------------------------------------------------------------- */
+  --cor-grafite:                  #2A2927; /* fundo escuro base */
+  --cor-grafite-hover:            #353431; /* fundo de hover/pressed sobre grafite */
+  --cor-grafite-borda:            #8F8C85; /* borda de controle · 4,33:1 sobre grafite — AA não-texto (1.4.11) */
+  --cor-grafite-texto-secundario: #A9A59D; /* texto secundário · 5,92:1 sobre grafite, 5,07:1 sobre grafite-hover — AA texto (1.4.3) */
+  /* texto primário sobre grafite é o próprio papel:
+     13,21:1 sobre grafite, 11,32:1 sobre grafite-hover — AAA (1.4.6) */
+
+  /* --------------------------------------------------------------------
+     Tipografia · Switzer (Fontshare, licença gratuita)
+     Família única — substitui SF Pro (licença Apple não permite embutir
+     fora de iOS/macOS) e a dupla anterior (Cabinet Grotesk + mono).
+     Monoespaçada: questão em aberto, não incluir sem decisão registrada.
+     -------------------------------------------------------------------- */
+  --fonte-familia: 'Switzer', -apple-system, 'Helvetica Neue', sans-serif;
+
+  /* Três pesos apenas — a contenção é a regra. Hierarquia adicional vem
+     de tamanho, espaçamento e contraste tonal, não de mais pesos. */
+  --fonte-peso-regular:  400; /* texto corrido */
+  --fonte-peso-medio:    500; /* UI, ênfase pontual, labels */
+  --fonte-peso-semibold: 600; /* títulos e display */
+
+  /* Escala de tamanho (base 16px = 1rem). Tracking negativo cresce com o
+     corpo — geometria da Switzer pede aproximação nos tamanhos grandes,
+     como a SF Pro faz via optical sizing. */
+  --texto-legenda-tamanho:   0.8125rem; /* 13px */
+  --texto-legenda-altura:    1.4;
+  --texto-corpo-sm-tamanho:  0.9375rem; /* 15px */
+  --texto-corpo-sm-altura:   1.5;
+  --texto-corpo-tamanho:     1.0625rem; /* 17px — corpo padrão */
+  --texto-corpo-altura:      1.5;
+  --texto-titulo-3-tamanho:  1.375rem;  /* 22px */
+  --texto-titulo-3-altura:   1.35;
+  --texto-titulo-3-tracking: -0.01em;
+  --texto-titulo-2-tamanho:  1.75rem;   /* 28px */
+  --texto-titulo-2-altura:   1.25;
+  --texto-titulo-2-tracking: -0.015em;
+  --texto-titulo-1-tamanho:  2.5rem;    /* 40px */
+  --texto-titulo-1-altura:   1.15;
+  --texto-titulo-1-tracking: -0.02em;
+  --texto-display-tamanho:   3.5rem;    /* 56px */
+  --texto-display-altura:    1.05;
+  --texto-display-tracking:  -0.025em;
+}
