@@ -15,9 +15,14 @@
      O botão "Modo apresentação" (canto superior direito) é um
      estado binário: em edição, bordas tracejadas, labels e
      instruções visíveis; em apresentação, só o conteúdo final,
-     pronto para compartilhar tela. Sem salvar nem histórico, por
-     desenho: recarregar a página descarta o preenchimento — um
-     preenchimento por call, descartável.
+     pronto para compartilhar tela. Durante a apresentação o botão
+     some por completo — não pode aparecer na tela compartilhada
+     com o cliente. A tecla E alterna o mesmo estado binário do
+     botão e é o caminho de volta ao modo edição (fora de um campo
+     de texto; digitando num campo, a letra e entra como texto).
+     Sem salvar nem histórico, por desenho: recarregar a página
+     descarta o preenchimento — um preenchimento por call,
+     descartável.
      Índice dos campos:
        data-campo="nome-do-prospect"   (slide 1 · capa)
        data-campo="dor-do-prospect"    (slide 2 · contexto)
@@ -413,6 +418,7 @@ h2 {
   transition: background .25s var(--able-enter);
 }
 .modo:hover { background: var(--cor-papel-hover); }
+body.apresentando .modo { display: none; }
 body.apresentando .campo { border: none; }
 body.apresentando .campo-bloco { padding: 0; }
 body.apresentando .campo-inline { padding: 0; color: inherit; }
@@ -673,6 +679,7 @@ body.apresentando .plano header .campo-inline {
     if (['ArrowLeft', 'ArrowUp', 'PageUp'].includes(e.key)) { e.preventDefault(); ir(atual - 1); }
     if (e.key === 'Home') ir(0);
     if (e.key === 'End') ir(slides.length - 1);
+    if (e.key === 'e' || e.key === 'E') aplicarModo(!document.body.classList.contains('apresentando'));
   });
 
   /* clique em área vazia do slide avança (controle com uma mão na call);
@@ -686,8 +693,10 @@ body.apresentando .plano header .campo-inline {
 
   /* modo apresentação: estado binário. Em edição, bordas tracejadas,
      instruções e campos editáveis; em apresentação, só o conteúdo
-     final. Sem salvar nem histórico, por desenho: preenchimento ao
-     vivo antes de cada call, descartável. */
+     final e o botão de modo some da tela — a tecla E (tratada no
+     keydown acima) alterna o mesmo estado e é a saída sem botão
+     visível. Sem salvar nem histórico, por desenho: preenchimento
+     ao vivo antes de cada call, descartável. */
   const btModo = document.getElementById('modo');
   function aplicarModo(apresentando) {
     document.body.classList.toggle('apresentando', apresentando);

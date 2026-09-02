@@ -1,0 +1,7 @@
+# Dependências e saídas de build — nunca versionar.
+# O pipeline de carrosséis (social/carrosseis/) instala playwright-core
+# em node_modules/ e gera os PNGs em saida/; ambos são reproduzíveis
+# a partir de posts/*.json + render.mjs.
+node_modules/
+social/carrosseis/saida/
+.DS_Store
