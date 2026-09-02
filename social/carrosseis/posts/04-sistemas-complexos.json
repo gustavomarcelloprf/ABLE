@@ -1,0 +1,47 @@
+{
+  "post": "04-sistemas-complexos",
+  "serie": "Sistemas complexos, simples de usar",
+  "pendencias": [],
+  "slides": [
+    {
+      "layout": "abertura",
+      "variante": "capa",
+      "eyebrow": "A tese",
+      "titulo": "Sistemas complexos, simples de usar.",
+      "corpo": "A complexidade fica por trás; a superfície é simples de usar.",
+      "fonte": "contexto-marca §2, literal (título: síntese registrada na linha do tempo, etapa 02)"
+    },
+    {
+      "layout": "comparacao",
+      "eyebrow": "A tese",
+      "titulo": "O mesmo sistema, dos dois lados.",
+      "a": { "tag": "por dentro", "frase": "Engenharia robusta: arquitetura, backend, frontend, banco de dados, deploy." },
+      "b": { "tag": "por fora", "frase": "Algo que qualquer pessoa consiga operar sem fricção." },
+      "fonte": "contexto-marca §2–3, literal (título do slide: descritivo mínimo)"
+    },
+    {
+      "layout": "comparacao",
+      "variante": "voz",
+      "eyebrow": "Na prática · erro de sistema",
+      "titulo": "Até o erro é simples de usar.",
+      "a": { "tag": "assim soamos", "frase": "“Não foi possível salvar: o servidor não respondeu. Suas alterações estão preservadas neste navegador. Tente novamente.”" },
+      "b": { "tag": "assim não soamos", "frase": "“Ops! Algo deu muito errado… :\u2060(\u2060 Desculpe o transtorno!”" },
+      "fonte": "identidade-visual, Tom de voz nos contextos reais (par 'Erro de sistema'), literal; título do slide: descritivo mínimo"
+    },
+    {
+      "layout": "comparacao",
+      "variante": "voz",
+      "eyebrow": "Na prática · como falamos",
+      "titulo": "O trabalho fala mais alto que o adjetivo.",
+      "a": { "tag": "assim soamos", "frase": "“Um formulário de 40 campos virou 6 decisões. O resto o sistema deduz sozinho.”" },
+      "b": { "tag": "assim não soamos", "frase": "“Revolucionando a experiência digital com soluções inovadoras e disruptivas! #tech #inovação”" },
+      "fonte": "identidade-visual, Tom de voz nos contextos reais (par 'Post em rede social'), literal; título: traço 'Confiante' da voz, literal"
+    },
+    {
+      "layout": "encerramento",
+      "eyebrow": "A tese",
+      "frase": "Preferimos dizer menos e garantir que cada palavra seja verdadeira.",
+      "fonte": "contexto-marca §7, literal"
+    }
+  ]
+}

@@ -1,0 +1,209 @@
+/* ==========================================================================
+   Able Development — Carrosséis Instagram · estilo dos templates
+
+   Canvas fixo 1080×1350 (4:5 retrato), exportado a 2x por render.mjs.
+   Cores, pesos e família vêm SEMPRE de tokens/able-tokens.css (@import
+   abaixo) — nenhum hex local. A escala de TAMANHO é própria do formato:
+   a escala dos tokens é para web (base 16px) e não cobre um canvas de
+   1080px lido no feed; os trackings seguem a mesma regra dos tokens
+   (negativo cresce com o corpo).
+
+   Tangelo segue a regra do token: marcação e detalhe (o traço que abre
+   cada slide), nunca fundo, nunca dentro do símbolo, nunca texto fora
+   de tinta. O swatch de paleta no showcase é espécime (conteúdo), mesmo
+   precedente do documento de identidade.
+   ========================================================================== */
+@import url("../../tokens/able-tokens.css");
+
+@font-face {
+  font-family: 'Switzer';
+  src: url("../../fonts/Switzer-Regular.woff2") format("woff2");
+  font-weight: 400; font-style: normal; font-display: block;
+}
+@font-face {
+  font-family: 'Switzer';
+  src: url("../../fonts/Switzer-Medium.woff2") format("woff2");
+  font-weight: 500; font-style: normal; font-display: block;
+}
+@font-face {
+  font-family: 'Switzer';
+  src: url("../../fonts/Switzer-Semibold.woff2") format("woff2");
+  font-weight: 600; font-style: normal; font-display: block;
+}
+
+:root {
+  --slide-margem:   96px;
+  --slide-eyebrow:  29px;
+  --slide-display:  96px;  /* título da capa */
+  --slide-titulo:   72px;  /* título de slide interno */
+  --slide-subtitulo:58px;  /* título de showcase/comparação */
+  --slide-corpo:    40px;
+  --slide-apoio:    33px;
+  --slide-contador: 27px;
+  --slide-numero:   300px; /* numerado/processo */
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 1080px; height: 1350px; }
+body {
+  font-family: var(--fonte-familia);
+  background: var(--cor-papel);
+  color: var(--cor-tinta);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.slide {
+  width: 1080px; height: 1350px;
+  padding: var(--slide-margem);
+  display: flex; flex-direction: column;
+  background: var(--cor-papel);
+  overflow: hidden;
+}
+.slide.tema-grafite { background: var(--cor-grafite); color: var(--cor-papel); }
+
+/* ---- chrome comum a todo slide ---- */
+.topo { display: flex; align-items: center; gap: 22px; flex: none; }
+.topo .traco { width: 44px; height: 4px; background: var(--cor-tangelo); flex: none; }
+.eyebrow {
+  font-size: var(--slide-eyebrow); font-weight: var(--fonte-peso-medio);
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--cor-texto-secundario);
+}
+.tema-grafite .eyebrow { color: var(--cor-grafite-texto-secundario); }
+
+.miolo { flex: 1; min-height: 0; display: flex; flex-direction: column; justify-content: center; }
+
+.rodape { flex: none; display: flex; align-items: center; justify-content: space-between; }
+.rodape .simbolo-min { height: 60px; width: auto; display: block; }
+.contador {
+  font-size: var(--slide-contador); font-weight: var(--fonte-peso-medio);
+  letter-spacing: 0.06em; font-variant-numeric: tabular-nums;
+  color: var(--cor-texto-secundario);
+}
+.tema-grafite .contador { color: var(--cor-grafite-texto-secundario); }
+
+/* ---- layout 1 · abertura / tese ---- */
+.layout-abertura .miolo { align-items: center; text-align: center; }
+.layout-abertura .titulo {
+  font-size: var(--slide-titulo); font-weight: var(--fonte-peso-semibold);
+  line-height: 1.06; letter-spacing: -0.025em; text-wrap: balance;
+  max-width: 880px;
+}
+.layout-abertura.var-capa .titulo { font-size: var(--slide-display); }
+.layout-abertura .corpo {
+  font-size: var(--slide-corpo); font-weight: var(--fonte-peso-regular);
+  line-height: 1.4; letter-spacing: -0.01em;
+  color: var(--cor-texto-secundario);
+  max-width: 800px; margin-top: 48px; text-wrap: balance;
+}
+
+/* ---- layout 2 · showcase ---- */
+.layout-showcase .cabeca { flex: none; margin-top: 72px; }
+.layout-showcase .titulo {
+  font-size: var(--slide-subtitulo); font-weight: var(--fonte-peso-semibold);
+  line-height: 1.1; letter-spacing: -0.02em;
+}
+.layout-showcase .corpo {
+  font-size: var(--slide-apoio); line-height: 1.45; letter-spacing: -0.005em;
+  color: var(--cor-texto-secundario); margin-top: 24px; max-width: 860px;
+}
+.layout-showcase .exibicao { flex: 1; min-height: 0; display: flex; flex-direction: column; justify-content: center; }
+
+/* showcase · paleta */
+.paleta { display: flex; flex-direction: column; gap: 26px; }
+.paleta .cor { display: flex; align-items: center; gap: 36px; }
+.paleta .chip { width: 132px; height: 108px; border-radius: 14px; border: 1px solid var(--cor-borda-sutil); flex: none; }
+.paleta .nome { font-size: 38px; font-weight: var(--fonte-peso-medio); letter-spacing: -0.01em; }
+.paleta .hex {
+  font-size: 28px; font-weight: var(--fonte-peso-regular);
+  letter-spacing: 0.04em; color: var(--cor-texto-secundario);
+  font-variant-numeric: tabular-nums; margin-top: 4px;
+}
+.paleta .nota { font-size: 26px; color: var(--cor-texto-secundario); margin-top: 4px; max-width: 660px; line-height: 1.35; }
+
+/* showcase · tipografia */
+.tipos { display: flex; flex-direction: column; gap: 44px; }
+.tipos .peso { display: flex; align-items: baseline; gap: 40px; border-top: 1px solid var(--cor-borda-sutil); padding-top: 36px; }
+.tipos .peso:first-child { border-top: 0; padding-top: 0; }
+.tipos .amostra { font-size: 96px; line-height: 1; letter-spacing: -0.02em; flex: none; width: 200px; }
+.tipos .peso-nome { font-size: 38px; font-weight: var(--fonte-peso-medio); letter-spacing: -0.01em; }
+.tipos .peso-uso { font-size: 28px; color: var(--cor-texto-secundario); margin-top: 6px; }
+.tipos .frase { font-size: 54px; line-height: 1.15; letter-spacing: -0.02em; margin-top: 24px; text-wrap: balance; }
+.tipos .frase strong { font-weight: var(--fonte-peso-semibold); }
+
+/* showcase · símbolo */
+.simbolo-caixa { align-items: center; text-align: center; }
+.simbolo-caixa .simbolo-grande { width: 460px; height: auto; display: block; margin: 0 auto; }
+.simbolo-caixa .legenda {
+  font-size: var(--slide-apoio); line-height: 1.45; color: var(--cor-texto-secundario);
+  max-width: 760px; margin: 56px auto 0; text-wrap: balance;
+}
+
+/* showcase · público (índice + título + corpo) */
+.publico .indice {
+  font-size: 140px; font-weight: var(--fonte-peso-semibold);
+  line-height: 1; letter-spacing: -0.025em; font-variant-numeric: tabular-nums;
+}
+.publico .indice-traco { width: 64px; height: 5px; background: var(--cor-tangelo); margin-top: 36px; }
+.publico .titulo-publico {
+  font-size: var(--slide-titulo); font-weight: var(--fonte-peso-semibold);
+  line-height: 1.08; letter-spacing: -0.025em; margin-top: 56px; max-width: 860px; text-wrap: balance;
+}
+.publico .corpo-publico {
+  font-size: var(--slide-corpo); line-height: 1.4; letter-spacing: -0.01em;
+  color: var(--cor-texto-secundario); margin-top: 44px; max-width: 820px;
+}
+
+/* ---- layout 3 · numerado / processo ---- */
+.layout-numerado .numero {
+  font-size: var(--slide-numero); font-weight: var(--fonte-peso-semibold);
+  line-height: 0.9; letter-spacing: -0.03em; font-variant-numeric: tabular-nums;
+}
+.layout-numerado .numero-traco { width: 64px; height: 5px; background: var(--cor-tangelo); margin-top: 44px; }
+.layout-numerado .titulo {
+  font-size: var(--slide-titulo); font-weight: var(--fonte-peso-semibold);
+  line-height: 1.08; letter-spacing: -0.025em; margin-top: 56px; max-width: 880px; text-wrap: balance;
+}
+.layout-numerado .texto {
+  font-size: var(--slide-corpo); line-height: 1.4; letter-spacing: -0.01em;
+  color: var(--cor-texto-secundario); margin-top: 44px; max-width: 840px;
+}
+
+/* ---- layout 4 · comparação (empilhado, 4:5 favorece) ---- */
+.layout-comparacao .cabeca { flex: none; margin-top: 72px; margin-bottom: 56px; }
+.layout-comparacao .titulo {
+  font-size: var(--slide-subtitulo); font-weight: var(--fonte-peso-semibold);
+  line-height: 1.1; letter-spacing: -0.02em;
+}
+.layout-comparacao .blocos { flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 30px; justify-content: center; }
+.bloco { border-radius: 22px; padding: 56px 60px; display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; }
+.bloco .tag {
+  font-size: 26px; font-weight: var(--fonte-peso-medio);
+  letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 28px;
+}
+.bloco .frase { font-size: 44px; line-height: 1.25; letter-spacing: -0.015em; text-wrap: balance; }
+
+/* bloco A — o lado "de dentro"/afirmativo: grafite sobre papel */
+.bloco-a { background: var(--cor-grafite); color: var(--cor-papel); }
+.bloco-a .tag { color: var(--cor-grafite-texto-secundario); }
+.bloco-a .frase { font-weight: var(--fonte-peso-semibold); }
+
+/* bloco B — o lado "de fora"/contraponto: papel com borda */
+.bloco-b { background: var(--cor-papel); border: 1px solid var(--cor-borda-controle); }
+.bloco-b .tag { color: var(--cor-texto-secundario); }
+.bloco-b .frase { font-weight: var(--fonte-peso-regular); }
+
+/* variação voz: contraponto rebaixado (o que a Able NÃO é) */
+.bloco-b.var-negativo { background: var(--cor-papel-hover); border: 0; }
+.bloco-b.var-negativo .frase { color: var(--cor-texto-secundario); }
+
+/* ---- layout 5 · encerramento / CTA ---- */
+.layout-encerramento .miolo { align-items: center; text-align: center; }
+.layout-encerramento .logo { width: 620px; height: auto; display: block; }
+.layout-encerramento .traco-fecho { width: 44px; height: 4px; background: var(--cor-tangelo); margin: 72px 0 0; }
+.layout-encerramento .frase {
+  font-size: 52px; font-weight: var(--fonte-peso-semibold);
+  line-height: 1.15; letter-spacing: -0.02em;
+  max-width: 840px; margin-top: 72px; text-wrap: balance;
+}

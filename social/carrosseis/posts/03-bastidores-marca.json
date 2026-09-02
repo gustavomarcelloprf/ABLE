@@ -1,0 +1,46 @@
+{
+  "post": "03-bastidores-marca",
+  "serie": "Bastidores da marca",
+  "pendencias": [],
+  "nota": "Conteúdo recuperado da linha do tempo 'Processo' (12 etapas) que saiu do documento de identidade por decisão do fundador — preservada nas versões anteriores do HTML (scratchpad da sessão de auditoria). Etapas não usadas aqui e disponíveis para posts futuros: Liquid Glass avaliado e descartado; três símbolos dentro do squircle revertidos; repositório e fluxo de auditoria; tokens neutros mergeados; primeiro spec-sheet.",
+  "slides": [
+    {
+      "layout": "abertura",
+      "variante": "capa",
+      "eyebrow": "Bastidores da marca",
+      "titulo": "Cada decisão tem uma etapa.",
+      "corpo": "A identidade da Able não nasceu pronta — foi aferida, descartada e reconstruída.",
+      "fonte": "linha do tempo removida (intro da seção Processo), literal"
+    },
+    {
+      "layout": "numerado",
+      "numero": "01",
+      "eyebrow": "Bastidores da marca",
+      "titulo": "O selo de aferição — descartado.",
+      "texto": "O primeiro conceito era um carimbo de aferição como metáfora central. Avaliado contra o posicionamento: certificar é retrospectivo por natureza — contradiz olhar para frente.",
+      "fonte": "linha do tempo removida, etapas 01–03"
+    },
+    {
+      "layout": "numerado",
+      "numero": "02",
+      "eyebrow": "Bastidores da marca",
+      "titulo": "SF Pro auditada e bloqueada. Switzer adotada.",
+      "texto": "A licença da Apple proíbe embutir a fonte fora de iOS, macOS e tvOS. A Switzer, da Fontshare, entra como substituta.",
+      "fonte": "linha do tempo removida, etapas 04–05"
+    },
+    {
+      "layout": "numerado",
+      "numero": "03",
+      "eyebrow": "Bastidores da marca",
+      "titulo": "Monograma “A” construído — e revertido.",
+      "texto": "Geometria auditada e aprovada tecnicamente, mas a marca não leva tipografia. Precisa ser símbolo abstrato.",
+      "fonte": "linha do tempo removida, etapa 10"
+    },
+    {
+      "layout": "encerramento",
+      "eyebrow": "Bastidores da marca",
+      "frase": "Abertura. O símbolo. Aprovado como definitivo.",
+      "fonte": "identidade-visual seção 04 ('Abertura. O símbolo.' + 'Aprovado pelo fundador como definitivo.')"
+    }
+  ]
+}

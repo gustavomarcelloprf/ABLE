@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Able · template de carrossel</title>
+<link rel="stylesheet" href="slide.css">
+</head>
+<body>
+<div id="palco"></div>
+<script>
+/* Template parametrizado: render.mjs chama renderSlide(slide, meta) por
+   slide e fotografa o resultado. Construção via DOM (textContent), nunca
+   innerHTML com dado — o conteúdo dos JSONs entra como texto puro. */
+
+const SIMBOLO = '../../assets/simbolo.svg';
+const LOGO_INVERTIDO = '../../assets/logo-invertido.svg';
+
+function el(tag, cls, texto) {
+  const n = document.createElement(tag);
+  if (cls) n.className = cls;
+  if (texto != null) n.textContent = texto;
+  return n;
+}
+function img(src, cls) {
+  const n = document.createElement('img');
+  n.src = src; n.className = cls;
+  return n;
+}
+
+function chrome(slide, meta, raiz) {
+  const topo = el('header', 'topo');
+  topo.append(el('span', 'traco'));
+  topo.append(el('span', 'eyebrow', slide.eyebrow || meta.serie));
+  raiz.prepend(topo);
+
+  const rodape = el('footer', 'rodape');
+  if (slide.layout !== 'encerramento') rodape.append(img(SIMBOLO, 'simbolo-min'));
+  else rodape.append(el('span'));
+  rodape.append(el('span', 'contador', meta.indice + ' / ' + meta.total));
+  raiz.append(rodape);
+}
+
+const LAYOUTS = {
+  abertura(s) {
+    const m = el('main', 'miolo');
+    m.append(el('h1', 'titulo', s.titulo));
+    if (s.corpo) m.append(el('p', 'corpo', s.corpo));
+    return m;
+  },
+
+  showcase(s) {
+    const m = el('main', 'miolo');
+    const cabeca = el('div', 'cabeca');
+    cabeca.append(el('h1', 'titulo', s.titulo));
+    if (s.corpo) cabeca.append(el('p', 'corpo', s.corpo));
+    const ex = el('div', 'exibicao');
+
+    if (s.exibicao === 'paleta') {
+      const lista = el('div', 'paleta');
+      for (const c of s.cores) {
+        const linha = el('div', 'cor');
+        const chip = el('div', 'chip');
+        chip.style.background = 'var(' + c.token + ')';
+        linha.append(chip);
+        const meta = el('div');
+        meta.append(el('div', 'nome', c.nome));
+        meta.append(el('div', 'hex', c.hex));
+        if (c.nota) meta.append(el('div', 'nota', c.nota));
+        linha.append(meta);
+        lista.append(linha);
+      }
+      ex.append(lista);
+
+    } else if (s.exibicao === 'tipografia') {
+      const lista = el('div', 'tipos');
+      for (const p of s.pesos) {
+        const linha = el('div', 'peso');
+        const amostra = el('div', 'amostra', 'Aa');
+        amostra.style.fontWeight = p.peso;
+        linha.append(amostra);
+        const meta = el('div');
+        meta.append(el('div', 'peso-nome', p.nome + ' · ' + p.peso));
+        meta.append(el('div', 'peso-uso', p.uso));
+        linha.append(meta);
+        lista.append(linha);
+      }
+      if (s.frase) {
+        const f = el('p', 'frase');
+        f.append(el('strong', null, s.frase[0]));
+        f.append(document.createTextNode(' '));
+        f.append(document.createTextNode(s.frase[1]));
+        const wrap = el('div', 'peso');
+        wrap.append(f);
+        lista.append(wrap);
+      }
+      ex.append(lista);
+
+    } else if (s.exibicao === 'simbolo') {
+      ex.classList.add('simbolo-caixa');
+      ex.append(img(SIMBOLO, 'simbolo-grande'));
+      if (s.legenda) ex.append(el('p', 'legenda', s.legenda));
+
+    } else if (s.exibicao === 'publico') {
+      ex.classList.add('publico');
+      ex.append(el('div', 'indice', s.indice));
+      ex.append(el('div', 'indice-traco'));
+      ex.append(el('h2', 'titulo-publico', s.tituloPublico));
+      ex.append(el('p', 'corpo-publico', s.corpoPublico));
+      m.append(ex);
+      return m; // público não usa cabeça própria — índice é o protagonista
+    }
+
+    m.append(cabeca);
+    m.append(ex);
+    return m;
+  },
+
+  numerado(s) {
+    const m = el('main', 'miolo');
+    m.append(el('div', 'numero', s.numero));
+    m.append(el('div', 'numero-traco'));
+    m.append(el('h1', 'titulo', s.titulo));
+    m.append(el('p', 'texto', s.texto));
+    return m;
+  },
+
+  comparacao(s) {
+    const m = el('main', 'miolo');
+    if (s.titulo) {
+      const cabeca = el('div', 'cabeca');
+      cabeca.append(el('h1', 'titulo', s.titulo));
+      m.append(cabeca);
+    }
+    const blocos = el('div', 'blocos');
+    const a = el('div', 'bloco bloco-a');
+    a.append(el('div', 'tag', s.a.tag));
+    a.append(el('p', 'frase', s.a.frase));
+    const b = el('div', 'bloco bloco-b' + (s.variante === 'voz' ? ' var-negativo' : ''));
+    b.append(el('div', 'tag', s.b.tag));
+    b.append(el('p', 'frase', s.b.frase));
+    blocos.append(a, b);
+    m.append(blocos);
+    return m;
+  },
+
+  encerramento(s) {
+    const m = el('main', 'miolo');
+    m.append(img(LOGO_INVERTIDO, 'logo'));
+    m.append(el('div', 'traco-fecho'));
+    m.append(el('p', 'frase', s.frase));
+    return m;
+  },
+};
+
+function renderSlide(slide, meta) {
+  const palco = document.getElementById('palco');
+  palco.innerHTML = '';
+  const raiz = el('div', 'slide layout-' + slide.layout +
+    (slide.variante ? ' var-' + slide.variante : '') +
+    (slide.layout === 'encerramento' ? ' tema-grafite' : ''));
+  raiz.append(LAYOUTS[slide.layout](slide));
+  chrome(slide, meta, raiz);
+  palco.append(raiz);
+  return document.fonts.ready.then(() =>
+    Promise.all([...document.images].map(i =>
+      i.complete ? null : new Promise(r => { i.onload = r; i.onerror = r; })
+    ))
+  );
+}
+window.renderSlide = renderSlide;
+</script>
+</body>
+</html>

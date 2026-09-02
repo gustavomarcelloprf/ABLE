@@ -1,0 +1,50 @@
+{
+  "post": "05-para-quem-construimos",
+  "serie": "Para quem construímos",
+  "pendencias": [
+    "CTA de contato (handle do Instagram, site, e-mail) não está documentado em nenhum arquivo do repo — o slide de encerramento sai só com logo + frase documentada. Definir o CTA é decisão do fundador."
+  ],
+  "slides": [
+    {
+      "layout": "abertura",
+      "variante": "capa",
+      "eyebrow": "Para quem construímos",
+      "titulo": "Três frentes.",
+      "corpo": "Versatilidade: de sites institucionais a SaaS complexos, sem depender de um nicho único.",
+      "fonte": "contexto-marca §4 ('Três frentes') + §5, literal"
+    },
+    {
+      "layout": "showcase",
+      "exibicao": "publico",
+      "eyebrow": "Para quem construímos",
+      "indice": "01",
+      "tituloPublico": "Empresas que precisam de sistemas internos sérios.",
+      "corpoPublico": "Jurídico, financeiro, operações. Negócios dispostos a pagar por engenharia de verdade.",
+      "fonte": "contexto-marca §4, literal"
+    },
+    {
+      "layout": "showcase",
+      "exibicao": "publico",
+      "eyebrow": "Para quem construímos",
+      "indice": "02",
+      "tituloPublico": "Startups em estágio inicial.",
+      "corpoPublico": "Produto e marca construídos juntos, desde o zero.",
+      "fonte": "contexto-marca §4, literal"
+    },
+    {
+      "layout": "showcase",
+      "exibicao": "publico",
+      "eyebrow": "Para quem construímos",
+      "indice": "03",
+      "tituloPublico": "Outras agências e estúdios.",
+      "corpoPublico": "Um parceiro técnico forte para executar o que desenham.",
+      "fonte": "contexto-marca §4, literal"
+    },
+    {
+      "layout": "encerramento",
+      "eyebrow": "Para quem construímos",
+      "frase": "Projetar e construir software sob medida, com o ciclo completo em um só time.",
+      "fonte": "proveniência (missão registrada)"
+    }
+  ]
+}
