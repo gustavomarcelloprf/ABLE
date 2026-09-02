@@ -9,8 +9,11 @@
    intermediária. Se um dia outra plataforma precisar dos tokens, extrair
    JSON deste arquivo é trivial; o inverso exigiria manter duas fontes.
 
-   Paleta 100% neutra — sem cor de destaque (diretriz v3). Hierarquia vem de
-   peso tipográfico, espaçamento e contraste tonal. Papel e tinta nunca são
+   Paleta de BASE 100% neutra. Um único acento (tangelo, seção própria
+   abaixo) existe por decisão do fundador — revisão pontual e REGISTRADA da
+   diretriz v3 "sem cor de destaque", não um retorno ao que existia antes do
+   pivô Apple-minimal. Hierarquia continua vindo de peso tipográfico,
+   espaçamento e contraste tonal — nunca do acento. Papel e tinta nunca são
    branco/preto puros. Todo par texto/fundo abaixo tem contraste WCAG
    CALCULADO por scripts/contraste.mjs (node scripts/contraste.mjs) — os
    valores nos comentários são a saída real do script, não estimativa.
@@ -37,6 +40,25 @@
   --cor-grafite-texto-secundario: #A9A59D; /* texto secundário · 5,92:1 sobre grafite, 5,07:1 sobre grafite-hover — AA texto (1.4.3) */
   /* texto primário sobre grafite é o próprio papel:
      13,21:1 sobre grafite, 11,32:1 sobre grafite-hover — AAA (1.4.6) */
+
+  /* --------------------------------------------------------------------
+     Acento · Tangelo (decisão do fundador — revisão registrada da regra
+     "paleta 100% neutra" da v3)
+
+     REGRA DE USO — teto de 2–3% de qualquer superfície:
+     - Nunca fundo de bloco, nunca preenchimento grande, nunca no lugar
+       da escala neutra como base.
+     - Nunca dentro do símbolo "Abertura" — a marca segue flat e neutra.
+     - Usos aceitáveis: sublinhado ou ponto de destaque em UI, estado de
+       hover/foco de link, um traço fino de divisão pontual.
+     - Como TEXTO/label, SOMENTE sobre tinta — único par que passa AA.
+
+     Contraste CALCULADO por scripts/contraste.mjs (saída real do script):
+       3,10:1 sobre papel    — AA não-texto (1.4.11) · só não-texto
+       4,27:1 sobre grafite  — AA não-texto (1.4.11) · só não-texto
+       5,00:1 sobre tinta    — AA texto (1.4.3) · único par de texto
+     -------------------------------------------------------------------- */
+  --cor-tangelo: #FB4D00; /* acento único · detalhe, nunca base */
 
   /* --------------------------------------------------------------------
      Tipografia · Switzer (Fontshare, licença gratuita)

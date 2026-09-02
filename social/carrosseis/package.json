@@ -1,0 +1,12 @@
+{
+  "name": "able-carrosseis",
+  "private": true,
+  "type": "module",
+  "description": "Templates parametrizados de carrossel Instagram da Able — render via Playwright a partir de posts/*.json",
+  "scripts": {
+    "render": "node render.mjs"
+  },
+  "dependencies": {
+    "playwright-core": "^1.49.0"
+  }
+}

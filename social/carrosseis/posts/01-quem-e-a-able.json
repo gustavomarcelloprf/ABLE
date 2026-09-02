@@ -1,0 +1,45 @@
+{
+  "post": "01-quem-e-a-able",
+  "serie": "Quem é a Able",
+  "pendencias": [
+    "Enunciado formal de visão está pendente de decisão do fundador (docs/proveniencia-conteudo.md) — por isso nenhum slide usa 'visão' como rótulo.",
+    "Personalidade proposta ('Constrói como quem assina. Prova como quem mede.') aguarda aprovação do fundador — não usada em nenhum slide."
+  ],
+  "slides": [
+    {
+      "layout": "abertura",
+      "variante": "capa",
+      "eyebrow": "Quem é a Able",
+      "titulo": "Sistemas complexos não precisam ser difíceis de usar.",
+      "corpo": "Essa é a tese que guia todo projeto da Able.",
+      "fonte": "contexto-marca §3, literal"
+    },
+    {
+      "layout": "abertura",
+      "eyebrow": "Propósito",
+      "titulo": "Tornar sistemas complexos simples de usar.",
+      "corpo": "Pegar a complexidade real de um negócio ou processo e entregar algo que qualquer pessoa consiga operar sem fricção.",
+      "fonte": "proveniência (propósito literal) + contexto-marca §3"
+    },
+    {
+      "layout": "abertura",
+      "eyebrow": "Missão",
+      "titulo": "Projetar e construir software sob medida, com o ciclo completo em um só time.",
+      "corpo": "Arquitetura, backend, frontend, banco de dados, deploy — sem fragmentar a entrega entre equipes desconectadas.",
+      "fonte": "proveniência (missão) + contexto-marca §2"
+    },
+    {
+      "layout": "abertura",
+      "eyebrow": "Postura",
+      "titulo": "Olhamos para frente, não para trás.",
+      "corpo": "A identidade da Able não se apoia em contar histórico de projetos antigos — se apoia no que fazemos de melhor, hoje e daqui pra frente.",
+      "fonte": "contexto-marca §1, literal"
+    },
+    {
+      "layout": "encerramento",
+      "eyebrow": "Quem é a Able",
+      "frase": "Engenharia robusta por dentro, simplicidade por fora.",
+      "fonte": "contexto-marca §3, literal"
+    }
+  ]
+}

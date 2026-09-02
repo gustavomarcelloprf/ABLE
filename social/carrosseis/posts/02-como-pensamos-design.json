@@ -1,0 +1,57 @@
+{
+  "post": "02-como-pensamos-design",
+  "serie": "Como pensamos design",
+  "pendencias": [],
+  "slides": [
+    {
+      "layout": "abertura",
+      "variante": "capa",
+      "eyebrow": "Como pensamos design",
+      "titulo": "Minimalismo, com um acento, contado.",
+      "corpo": "Um único acento, o tangelo, entra como marcação e detalhe: um traço, um sublinhado, um ponto. Nunca vira fundo, nunca substitui a base neutra.",
+      "fonte": "identidade-visual seção 02 (Princípio visual) e seção 03 (Paleta · tangelo), literal"
+    },
+    {
+      "layout": "showcase",
+      "exibicao": "paleta",
+      "eyebrow": "Paleta",
+      "titulo": "Papel, tinta, grafite.",
+      "corpo": "Nunca preto ou branco puros. Todo par de texto e fundo foi aferido por script, não estimado.",
+      "cores": [
+        { "nome": "papel",   "token": "--cor-papel",   "hex": "#F5F4F1", "nota": "fundo base — off-white quente, nunca #FFF" },
+        { "nome": "tinta",   "token": "--cor-tinta",   "hex": "#1D1C1A", "nota": "texto primário — 15,48:1 sobre papel · AAA" },
+        { "nome": "grafite", "token": "--cor-grafite", "hex": "#2A2927", "nota": "fundo escuro base" },
+        { "nome": "tangelo", "token": "--cor-tangelo", "hex": "#FB4D00", "nota": "acento único · detalhe, nunca base" }
+      ],
+      "fonte": "tokens/able-tokens.css (valores e comentários) + identidade-visual seção 03"
+    },
+    {
+      "layout": "showcase",
+      "exibicao": "tipografia",
+      "eyebrow": "Tipografia",
+      "titulo": "Switzer. Família única.",
+      "corpo": "Três pesos apenas — a contenção é a regra.",
+      "pesos": [
+        { "nome": "Regular",  "peso": 400, "uso": "texto corrido" },
+        { "nome": "Médio",    "peso": 500, "uso": "UI, ênfase pontual, labels" },
+        { "nome": "Semibold", "peso": 600, "uso": "títulos e display" }
+      ],
+      "frase": ["Complexo por dentro,", "simples por fora."],
+      "fonte": "tokens/able-tokens.css (pesos e usos) + identidade-visual seção 06 (espécime literal)"
+    },
+    {
+      "layout": "showcase",
+      "exibicao": "simbolo",
+      "eyebrow": "Símbolo",
+      "titulo": "Abertura. O símbolo.",
+      "legenda": "Uma silhueta única: sem container, sem letra, sem vértice, sem aresta reta.",
+      "fonte": "identidade-visual seção 04, literal"
+    },
+    {
+      "layout": "encerramento",
+      "eyebrow": "Como pensamos design",
+      "frase": "Hierarquia vem de peso tipográfico, espaçamento e contraste tonal — nunca de cor.",
+      "fonte": "contexto-marca §6, literal"
+    }
+  ]
+}

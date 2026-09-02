@@ -15,6 +15,10 @@ const CORES = {
   'grafite-hover':        '#353431',
   'grafite-borda':        '#8F8C85',
   'grafite-texto-secundario': '#A9A59D',
+  // Acento único — decisão do fundador (revisão registrada da regra
+  // "paleta 100% neutra" da v3). Teto de uso: 2–3% de qualquer superfície;
+  // nunca fundo, nunca no símbolo; texto só sobre tinta. Ver tokens/able-tokens.css.
+  tangelo:                '#FB4D00',
 };
 
 // [primeiro plano, fundo, alvo, critério]
@@ -29,6 +33,10 @@ const PARES = [
   ['grafite-texto-secundario', 'grafite', 4.5, 'texto — AA (1.4.3)'],
   ['grafite-texto-secundario', 'grafite-hover', 4.5, 'texto — AA (1.4.3)'],
   ['grafite-borda', 'grafite', 3.0, 'não-texto — AA (1.4.11)'],
+  // Acento tangelo: só não-texto sobre papel/grafite; como texto, só sobre tinta.
+  ['tangelo', 'papel', 3.0, 'não-texto — AA (1.4.11) · acento, só não-texto'],
+  ['tangelo', 'grafite', 3.0, 'não-texto — AA (1.4.11) · acento, só não-texto'],
+  ['tangelo', 'tinta', 4.5, 'texto — AA (1.4.3) · único par de texto do acento'],
   // Bordas sutis são decorativas (separadores dentro de superfície contínua);
   // documentadas aqui por transparência, sem alvo normativo.
   ['borda-sutil', 'papel', 0, 'decorativa — sem exigência WCAG'],
